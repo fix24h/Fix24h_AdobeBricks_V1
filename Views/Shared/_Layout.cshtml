@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+
+        @if (!string.IsNullOrWhiteSpace(ViewBag.Title))
+        {
+
+            @ViewBag.Title@: -
+        }
+        Gạch không nung Trung Hiếu
+    </title>
+
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    @*<link href="~/Assets/Client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Assets/Carts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Assets/Client/css/contactstyle.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Assets/Client/css/faqstyle.css" type="text/css" media="all" />
+    <link href="~/Assets/Client/css/single.css" rel='stylesheet' type='text/css' />
+    <link href="~/Assets/Client/css/medile.css" rel='stylesheet' type='text/css' />
+    <!-- banner-slider -->
+    <link href="~/Assets/Client/css/jquery.slidey.min.css" rel="stylesheet">
+    <!-- //banner-slider -->
+    <!-- pop-up -->
+    <link href="~/Assets/Client/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Assets/Client/css/news.css" rel="stylesheet" />
+
+    <link href="~/Assets/Client/list-css/list.css" rel="stylesheet" />
+    <!-- //pop-up -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Assets/Client/css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    @*<script type="text/javascript" src="~/Assets/Client/js/jquery-2.1.4.min.js"></script>*@
+    <script src="~/Assets/Carts/js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- banner-bottom-plugin -->
+    <link href="~/Assets/Client/css/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <script src="~/Assets/Client/js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                items: 4,
+                itemsDesktop: [640, 4],
+                itemsDesktopSmall: [414, 3]
+
+            });
+
+        });
+    </script>
+    <!-- //banner-bottom-plugin -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Assets/Client/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Assets/Client/js/easing.js"></script>
+
+
+    <!-- //ManiMenu -->
+    <link href="~/Assets/Client/bootstrap-dropdown-hover-master/css/animate.min.css" rel="stylesheet" />
+    <link href="~/Assets/Client/bootstrap-dropdown-hover-master/css/bootstrap-dropdownhover.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/menu.css" rel="stylesheet" />
+    <!-- //End ManiMenu -->
+    @*<script type="text/javascript" src="~/Areas/Library/jssor//js/jquery-1.9.1.min.js"></script>*@
+    <!-- use jssor.slider.mini.js (40KB) or jssor.sliderc.mini.js (32KB, with caption, no slideshow) or jssor.sliders.mini.js (28KB, no caption, no slideshow) instead for release -->
+    <!-- jssor.slider.mini.js = jssor.sliderc.mini.js = jssor.sliders.mini.js = (jssor.core.js + jssor.utils.js + jssor.slider.js) -->
+    <script type="text/javascript" src="~/Areas/Library/jssor/js/jssor.core.js"></script>
+    <script type="text/javascript" src="~/Areas/Library/jssor/js/jssor.utils.js"></script>
+    <script type="text/javascript" src="~/Areas/Library/jssor/js/jssor.slider.js"></script>
+    <script src="~/Assets/Client/js/simpleCart.js"></script>
+    <link href="~/Assets/Client/pages/style_sign.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/Style_hh.css" rel="stylesheet" />
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+
+    <script src="~/Assets/Client/js/bootstrap.min.js"></script>
+    @*<script src="~/Assets/Carts/js/jquery.mycart.js"></script>*@
+
+    @*<script src="~/Assets/Carts/js/storeCartItems.js"></script>*@
+
+    <link href="~/Assets/Client/css/Style_hh1.css" rel="stylesheet" />
+    <script src="~/Assets/Carts/js/validator.js"></script>
+
+    <!-- start-smoth-scrolling -->
+    <link href="~/Assets/Client/css/StyleSheet1.css" rel="stylesheet" />
+</head>
+
+<body>
+    @*<script>$(document).ajaxStart(function () { Pace.restart(); });</script>*@
+    <!-- Live Chat -->
+
+    <div id="fb-root"></div>
+    <script>$(document).ready(function () { var raido = $(".wrap").attr("data-toggle"); if (raido == 1) { $(".mnv-tuvan").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".mnv-tuvan").slideToggle(); }); $(".mnv-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } else { $(".wrap").css("display", "none"); $(".x").click(function () { $(".wrap").slideToggle(); $(".mnv-tuvan").slideToggle(); }); $(".mnv-tuvan").click(function () { $(".wrap").slideToggle(); $(this).slideToggle(); }); } })(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=887080981367835"; fjs.parentNode.insertBefore(js, fjs); }(document, "script", "facebook-jssdk"));</script>
+    <style>
+        .wrap {
+            position: fixed;
+            width: 300px;
+            height: 400px;
+            z-index: 9999999;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .x {
+            font-family: arial, helvetica;
+            background: rgba(78,86,101,0.8) none repeat scroll 0 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            position: absolute;
+            right: 0;
+            text-align: center;
+            top: -19px;
+            width: 25px;
+            z-index: 99999999;
+        }
+
+            .x:hover {
+                cursor: pointer;
+            }
+
+        .pxem {
+            text-align: left;
+            height: 20px;
+            margin-bottom: 0;
+            margin-top: 0;
+            background: #0088b5;
+            width: 100%;
+            bottom: 0;
+            display: block;
+            left: 0px;
+            position: absolute;
+            z-index: 999999999;
+            border-left: 1px solid #fff;
+        }
+
+            .pxem a.axem {
+                color: #fff;
+                font-family: arial,helvetica;
+                font-size: 12px;
+                line-height: 23px;
+                padding-left: 5px;
+                text-decoration: none;
+            }
+
+                .pxem a.axem:hover {
+                    text-decoration: underline;
+                }
+
+        .alogo {
+            position: absolute;
+            bottom: 0;
+            right: 0px;
+            z-index: 999999999999;
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+            background: #0088b5;
+            padding-right: 0px;
+            padding-left: 5px
+        }
+
+        .mnv-tuvan {
+            position: fixed;
+            width: 300px;
+            background: #0088b5;
+            z-index: 99999999;
+            right: 0px;
+            bottom: 0px;
+            border-style: solid solid none;
+            border-width: 1px 1px 0;
+            border-color: #fff
+        }
+
+            .mnv-tuvan p {
+                color: #fff;
+                font-size: 15px;
+                margin: 0;
+                padding: 0 13px;
+                text-align: left;
+            }
+
+                .mnv-tuvan p a {
+                    color: #fff;
+                    font-size: 15px;
+                    padding: 5px 0px 7px;
+                    margin: 0;
+                    display: inline-block;
+                    font-family: arial, helvetica;
+                    text-decoration: none;
+                }
+
+                    .mnv-tuvan p a:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+
+                .mnv-tuvan p img {
+                    float: right;
+                    margin-top: 10px;
+                }
+    </style>
+    <div data-toggle="1" class="wrap" style="position:fixed; width:250px; height: 325px; ">
+    <span class="x" style="">X</span>
+    <div class="fb-page" data-adapt-container-width="true" data-height="325" data-hide-cover="false" data-href="https://www.facebook.com/profile.php?id=100012206959785&fref=gs&dti=226655407842942&hc_location=group_dialog/" data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages" data-width="250" style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;"></div>
+    <p class="pxem" style="">
+        <a class="axem" style="" href=" http://fix24h.vn" target="_blank">Cài đặt live chat Fix24h</a>
+        <a class="alogo" style="">
+        <img src="http://pront04.web24h.vn/Uploaded/Members/9558/images/2015/11/logo-web.png" width="27px" height="14px" style="margin-top: 3px">
+                   </a>
+        </p>
+    </div>
+    <div class="mnv-tuvan" style="width: 248px;">
+    <p style="height:20px">
+    <a style="margin-top:-17px;font-size:12px">Bạn cần tư vấn ?</a>
+        @*<img src="http://pront04.web24h.vn/Uploaded/Members/9558/images/2015/11/supprt.png">*@
+        </p>
+    </div>
+
+    <!-- Live Chat -->
+
+    <div class="">
+        <a href="/Home">
+            <div class="">
+                <img src="~/Assets/Client/images/Banner IDC 5.png" height="90" width="100%" />
+                <div class="clearfix"> </div>
+                <div class="clearfix"> </div>
+                <div class="clearfix"> </div>
+            </div>
+        </a>
+    </div>
+    @*<div class="header center-block">
+            <div class="container">
+                <div style="margin-left:70px;">
+                    <a href="/Home"><img src="~/Areas/Library/Album/banner.png" /></a>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>*@
+    <!-- //header -->
+    <!-- bootstrap-pop-up -->
+    @*<script>
+            $('.toggle').click(function () {
+                // Switches the Icon
+                $(this).children('i').toggleClass('fa-pencil');
+                // Switches the forms
+                $('.form').animate({
+                    height: "toggle",
+                    'padding-top': 'toggle',
+                    'padding-bottom': 'toggle',
+                    opacity: "toggle"
+                }, "slow");
+            });
+        </script>*@
+    <!-- //bootstrap-pop-up -->
+    <!-- nav -->
+    @Html.Action("MainMenu", "Home")
+    <!-- //nav -->
+    <!-- banner -->
+    @RenderSection("Banner", required: false)
+    <script src="~/Assets/Client/js/jquery.slidey.js"></script>
+    <script src="~/Assets/Client/js/jquery.dotdotdot.min.js"></script>
+    <script type="text/javascript">
+        $("#slidey").slidey({
+            interval: 8000,
+            listCount: 5,
+            autoplay: true,
+            showList: false,
+        });
+        $(".slidey-list-description").dotdotdot();
+    </script>
+    <!-- //banner -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:30px;">
+                @Html.Partial("MenuCategory")
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+    @*@RenderSection("paner", required: false)*@
+    <!-- banner-bottom -->
+    @Html.Partial("Facebook")
+
+    @*<script>
+            $(document).ready(function () {
+                $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+                    type: 'inline',
+                    fixedContentPos: false,
+                    fixedBgPos: true,
+                    overflowY: 'auto',
+                    closeBtnInside: true,
+                    preloader: false,
+                    midClick: true,
+                    removalDelay: 300,
+                    mainClass: 'my-mfp-zoom-in'
+                });
+
+            });
+        </script>*@
+    <!-- //Latest-tv-series -->
+    <!-- footer -->
+    @Html.Partial("Footer")
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    <!-- //Bootstrap Core JavaScript -->
+    <!-- here stars scrolling icon -->
+    @*<script src="~/Assets/Client/js/easing.js"></script>
+        <script src="~/Assets/Client/js/move-top.js"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({
+                        scrollTop: $(this.hash).offset().top
+                    }, 6000);
+                });
+            });
+        </script>*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //var defaults = {
+            //containerID: 'toTop', // fading element id
+            //containerHoverID: 'toTopHover', // fading element hover id
+            //scrollSpeed: 1200,
+            //easingType: 'linear'
+            //};
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115621530-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115621530-1');
+    </script>
+
+</body>
+</html>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#0094ff">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color:white">Thông tin khách hàng</h4>
+            </div>
+            <div class="modal-body">
+                <form data-toggle="validator" role="form">
+                    <div class="form-group">
+                        <label for="inputName" class="control-label">Tên khách hàng</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user" style="color:cornflowerblue;"></span></div>
+                            <input type="text" class="form-control" id="txtCustomer" placeholder="Tên khách hàng" data-error="Tên khách hàng không bỏ trống" required>
+
+                        </div>
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputName" class="control-label">Địa chỉ</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-book" style="color:cornflowerblue;"></span></div>
+                            <input type="text" class="form-control" id="txtAddRess" placeholder="Địa chỉ" data-error="Địa chỉ không bỏ trống" required>
+
+
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label for="inputTwitter" class="control-label">Số điện thoại</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-phone" style="color:cornflowerblue;"></span></div>
+                            <input type="text" pattern="^[_0-9]{1,}$" class="form-control" id="txtPhoneNumbers" placeholder="Số điện thoại" data-error="Điện thoại phải là chữ số" required>
+
+                        </div>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="control-label">Email</label>
+
+
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" style="color:cornflowerblue;"></span></div>
+                            <input type="email" class="form-control" id="txtEmail" placeholder="Email" data-error="Địa chỉ email không hợp lệ" required>
+
+                        </div>
+
+
+
+
+
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </form>
+                <div class="row" style="margin-left:60%">
+                    <div class="form-group col-sm-6">
+                        <button type="submit" onclick="sendCustomerInformation();" data-dismiss="modal" class="btn btn-primary">Thanh toán</button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy bỏ</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@*<script>jQuery.noConflict(true);</script>*@

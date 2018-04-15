@@ -1,0 +1,295 @@
+﻿@model Model.EF.Post
+
+@using Model.EF;
+@using Fix24h_AdobeBricks_V1.Common;
+
+@{
+    var news = (IEnumerable<Post>)ViewBag.News;
+    var news1 = (IEnumerable<Post>)ViewBag.News1;
+    var news2 = (IEnumerable<Post>)ViewBag.News2;
+}
+
+<link href="~/Assets/Client/news-css/news.css" rel="stylesheet" />
+<!-- faq-banner -->
+<div class="faq">
+    <div class="agileinfo-news-top-grids" style="margin-top:30px">
+        <div class="">
+            @*<div class="agileits-news-top" style="margin-top:10px">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li><a href="/Tin-tuc">Tin tức</a></li>
+                        <li class="active">Chi tiết</li>
+                    </ol>
+                </div>*@
+            <div class="col-md-9 wthree-top-news-left">
+                <div class="wthree-news-left">
+                    <div class="wthree-news-left-img">
+                        <img src="@Model.Image" width="100%" />
+                        <h4>@Html.Raw(Model.Name)</h4>
+                        <div class="s-author" style="font-size:13px;">
+                            <p>
+                                Posted By  <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    @if (Model.UpdatedBy == null)
+                                    {
+                                        @Model.CreatedBy;
+                                    }
+                                    else
+                                    {
+                                        @Model.UpdatedBy;
+                                    }
+                                    &nbsp;&nbsp;
+                                </a> &nbsp;&nbsp; <i class="fa fa-calendar" aria-hidden="true"></i>
+                                @if (Model.UpdatedDate == null)
+                                {
+                                    @Model.CreatedDate;
+                                }
+                                else
+                                {
+                                    @Model.UpdatedDate;
+                                }
+                                &nbsp;&nbsp; <a href="#"><i class="fa fa-comments" aria-hidden="true"></i> Comments (<span class="fb-comments-count" data-href="https://www.facebook.com/profile.php?id=100012206959785&fref=gs&dti=226655407842942&hc_location=group_dialog/"></span>)</a>
+                            </p>
+                        </div>
+                        <div id="fb-root"></div>
+
+                        <div class="news-shar-buttons">
+                            <ul style="list-style-type:none;">
+                                <li>
+                                    @*<div class="fb-like" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>*@
+                                    <div class="fb-like" data-href="https://www.facebook.com/profile.php?id=100012206959785&fref=gs&dti=226655407842942&hc_location=group_dialog/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                                    <script>
+                                        (function (d, s, id) {
+                                            var js, fjs = d.getElementsByTagName(s)[0];
+                                            if (d.getElementById(id)) return;
+                                            js = d.createElement(s); js.id = id;
+                                            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=2008094409430085&autoLogAppEvents=1';
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                                    @*<script>
+                                        (function (d, s, id) {
+                                            var js, fjs = d.getElementsByTagName(s)[0];
+                                            if (d.getElementById(id)) return;
+                                            js = d.createElement(s); js.id = id;
+                                            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+                                            fjs.parentNode.insertBefore(js, fjs);
+                                        }(document, 'script', 'facebook-jssdk'));</script>*@
+                                </li>
+                                <li>
+                                    @*<div class="fb-share-button" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fw3layouts&amp;src=sdkpreparse">Share</a></div>*@
+                                    <div class="fb-share-button" data-href="https://www.facebook.com/profile.php?id=100012206959785&fref=gs&dti=226655407842942&hc_location=group_dialog/" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Fhuybach2008&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+                                </li>
+                                <li class="news-twitter">
+                                    <a href="https://twitter.com/huybach2008" class="twitter-follow-button" data-show-count="false">Follow @@Fix24h</a>
+                                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/intent/tweet?screen_name=huybach2008" class="twitter-mention-button" data-show-count="false">Tweet to @@Fix24h</a>
+                                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </li>
+                                <li>
+                                    <!-- Place this tag where you want the +1 button to render. -->
+                                    <div class="g-plusone" data-size="medium"></div>
+
+                                    <!-- Place this tag after the last +1 button tag. -->
+                                    <script type="text/javascript">
+                                        (function () {
+                                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                            po.src = 'https://apis.google.com/js/platform.js';
+                                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                        })();
+                                    </script>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="w3-agile-news-text">
+                            <p>
+                                @Html.Raw(Model.Content)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="wthree-related-news-left">
+                        <h4>Tin tức liên quan</h4>
+                        <div class="wthree-news-top-left">
+                            @foreach (var item in news)
+                            {
+                                var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                <div class="col-md-6 w3-agileits-news-left">
+                                    <div class="col-sm-5 wthree-news-img">
+                                        <a href="@link">
+                                            <img src="@item.Image" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-7 wthree-news-info">
+                                        <h5><a href="@link">@Html.Raw(StringHelper.ShortArticle(item.Name, 5))</a></h5>
+                                        <p>@Html.Raw(StringHelper.ShortArticle(item.Description, 10)) </p>
+                                        <ul>
+                                            <li>
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                @if (item.UpdatedDate == null)
+                                                {
+                                                    @item.CreatedDate;
+                                                }
+                                                else
+                                                {
+                                                    @item.UpdatedDate;
+                                                }
+                                            </li>
+                                            <li><i class="fa fa-eye" aria-hidden="true"></i> @item.ViewCount</li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            }
+
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>*@
+                <!-- agile-comments -->
+                <div class="agile-news-comments">
+                    <div class="agile-news-comments-info">
+                        <h4>Comments</h4>
+                        @*<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>*@
+                        <div class="fb-comments" data-href="https://www.facebook.com/Fix24h-1994573190869981/" data-width="100%" data-numposts="5"></div>
+                    </div>
+                </div>
+                <!-- //agile-comments -->
+                <div class="news-related">
+                </div>
+            </div>
+            <div class="col-md-3 wthree-news-right" style="margin-top:-50px">
+                <!-- news-right-top -->
+                <div class="news-right-top">
+                    <div class="wthree-news-right-heading" style="color:#fff;background-color:#f39c42;height:40px;">
+                        <div style="margin-top:-10px!important"><strong style="font-size:20px">Tin tức</strong></div>
+                    </div>
+                    <div class="wthree-news-right-top">
+                        <div class="news-grids-bottom">
+                            <!-- date -->
+                            <div id="design" class="date">
+                                <div id="cycler">
+                                    @foreach (var item in news1)
+                                    {
+                                        DateTime aDateTime = DateTime.Now;
+                                        DateTime newTime = aDateTime.AddDays(-3);
+                                        var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                        <div class="date-text">
+                                            <a href="@link" style="font-size:13px">
+                                                @if (item.UpdatedDate == null)
+                                                {
+                                                    if (newTime <= item.CreatedDate)
+                                                    {
+                                                        @item.CreatedDate;
+                                                        <span class="blinking">
+                                                            <img src="~/Areas/Library/Template4/images/new.png" />
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.CreatedDate
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    if (newTime <= item.UpdatedDate)
+                                                    {
+                                                        @item.UpdatedDate;
+                                                        <span class="blinking">
+                                                            <img src="~/Areas/Library/Template4/images/new.png" />
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.UpdatedDate
+                                                    }
+                                                }
+                                            
+                                            <p>@item.Name</p>
+                                                </a>
+                                        </div>
+                                    }
+                                </div>
+                                <script>
+                                    function blinker() {
+                                        $('.blinking').fadeOut(500);
+                                        $('.blinking').fadeIn(500);
+                                    }
+                                    setInterval(blinker, 1000);
+                                </script>
+                                <script>
+                                    function cycle($item, $cycler) {
+                                        setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                                        $item.slideUp(1000, function () {
+                                            $item.appendTo($cycler).show();
+                                        });
+                                    }
+                                    cycle($('#cycler div:first'), $('#cycler'));
+                                </script>
+                            </div>
+                            <!-- //date -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //news-right-top -->
+                <!-- news-right-bottom -->
+                @*<div class="news-right-bottom">
+                        <div class="wthree-news-right-heading">
+                            <h3>Tin tức mới nhất</h3>
+                        </div>
+                        <div class="news-right-bottom-bg">
+                            <div class="news-grids-bottom">
+                                @foreach (var item in news2)
+                                {
+                                    DateTime aDateTime = DateTime.Now;
+                                    DateTime newTime = aDateTime.AddHours(-2);
+                                    var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                    <div class="top-news-grid">
+                                        <div class="top-news-grid-heading">
+                                            <a href="@link">@item.Name</a>
+                                        </div>
+                                        <div class="w3ls-news-t-grid top-t-grid">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-clock-o"></i> @if (item.UpdatedDate == null)
+                                                        {
+                                                            @item.CreatedDate;
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.UpdatedDate;
+                                                        }
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-user"></i>
+                                                        @if (item.UpdatedBy == null)
+                                                        {
+                                                            @item.CreatedBy;
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.UpdatedBy;
+                                                        }
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>*@
+                <!-- //news-right-bottom -->
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+</div>
+<!-- //faq-banner -->

@@ -1,0 +1,243 @@
+﻿@using Model.EF;
+@using Fix24h_AdobeBricks_V1.Common;
+
+@{
+    var newsCT = (IEnumerable<Post>)ViewBag.NewsCT;
+    var newsTT = (IEnumerable<Post>)ViewBag.NewsTT;
+    var news1 = (IEnumerable<Post>)ViewBag.News1;
+    var news2 = (IEnumerable<Post>)ViewBag.News2;
+}
+
+<link href="~/Assets/Client/news-css/news.css" rel="stylesheet" />
+<!-- faq-banner -->
+<div class="faq">
+    <div class="">
+        @*<div class="agileits-news-top">
+            <ol class="breadcrumb">
+                <li><a href="/">Trang chủ</a></li>
+                <li class="active">Tin tức</li>
+            </ol>
+        </div>*@
+        <div class="agileinfo-news-top-grids">
+            <div class="wthree-top-news-left">
+                <div class="wthree-news-left">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#Tin-cong-ty" id="Tin-cong-ty-tab" role="tab" data-toggle="tab" aria-controls="Tin-cong-ty" aria-expanded="true">Tin Công ty</a></li>
+                            <li role="presentation"><a href="#Tin-thi-truong" role="tab" id="Tin-thi-truong-tab" data-toggle="tab" aria-controls="Tin-thi-truong">Tin thị trường</a></li>
+
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="Tin-cong-ty" aria-labelledby="Tin-cong-ty-tab">
+                                @foreach (var item in newsCT)
+                                {
+                                    var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                    <div class="wthree-news-top-left">
+                                        <div class="col-md-12 w3-agileits-news-left">
+                                            <div class="col-sm-5 wthree-news-img">
+                                                <a href="@link"><img src="@item.Image" width="100" height="190" /></a>
+                                            </div>
+                                            <div class="col-sm-7 wthree-news-info">
+                                                <h5>
+                                                    <a href="@link">
+                                                        @Html.Raw(StringHelper.ShortArticle(item.Name, 20))
+                                                    </a>
+                                                </h5>
+                                                <p>@Html.Raw(StringHelper.ShortArticle(item.Description, 50))</p>
+                                                <ul>
+                                                    <li>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        @if (item.UpdatedDate == null)
+                                                        {
+                                                            @item.CreatedDate;
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.UpdatedDate;
+                                                        }
+                                                    </li>
+                                                    <li><i class="fa fa-eye" aria-hidden="true"></i> @item.ViewCount</li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+
+                                        <div class="clearfix"> </div>
+                                    </div>
+
+                                }
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Tin-thi-truong" aria-labelledby="Tin-thi-truong-tab">
+                                @foreach (var item in newsTT)
+                                {
+                                    var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                    <div class="wthree-news-top-left">
+                                        <div class="col-md-12 w3-agileits-news-left">
+                                            <div class="col-sm-5 wthree-news-img">
+                                                <a href="@link"><img src="@item.Image" width="100" height="190" /></a>
+                                            </div>
+                                            <div class="col-sm-7 wthree-news-info">
+                                                <h5>
+                                                    <a href="@link">
+                                                        @Html.Raw(StringHelper.ShortArticle(item.Name, 20))
+                                                    </a>
+                                                </h5>
+                                                <p>@Html.Raw(StringHelper.ShortArticle(item.Description, 50))</p>
+                                                <ul>
+                                                    <li>
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                                        @if (item.UpdatedDate == null)
+                                                        {
+                                                            @item.CreatedDate;
+                                                        }
+                                                        else
+                                                        {
+                                                            @item.UpdatedDate;
+                                                        }
+                                                    </li>
+                                                    <li><i class="fa fa-eye" aria-hidden="true"></i> @item.ViewCount</li>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 wthree-news-right">
+                <!-- news-right-top -->
+                @*<div class="news-right-top">
+                    <div class="wthree-news-right-heading">
+                        <h3>Tin mới cập nhật</h3>
+                    </div>
+                    <div class="wthree-news-right-top">
+                        <div class="news-grids-bottom">
+                            <!-- date -->
+                            <div id="design" class="date">
+                                <div id="cycler">
+                                    @foreach (var item in news1)
+                                    {
+                                        DateTime aDateTime = DateTime.Now;
+                                        DateTime newTime = aDateTime.AddDays(-3);
+                                        var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                        <div class="date-text">
+                                            <a href="@link">
+                                                @if (item.UpdatedDate == null)
+                                                {
+                                                    if (newTime <= item.CreatedDate)
+                                                    {
+                                                        @item.CreatedDate;
+                                                        <span class="blinking">
+                                                            <img src="~/Areas/Library/Template4/images/new.png" />
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.CreatedDate
+                                                    }
+
+                                                }
+                                                else
+                                                {
+                                                    if (newTime <= item.UpdatedDate)
+                                                    {
+                                                        @item.UpdatedDate;
+                                                        <span class="blinking">
+                                                            <img src="~/Areas/Library/Template4/images/new.png" />
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.UpdatedDate
+                                                    }
+                                                }
+                                            </a>
+                                            <p>@item.Name</p>
+                                        </div>
+                                    }
+                                </div>
+                                <script>
+                                    function blinker() {
+                                        $('.blinking').fadeOut(500);
+                                        $('.blinking').fadeIn(500);
+                                    }
+                                    setInterval(blinker, 1000);
+                                </script>
+                                <script>
+                                    function cycle($item, $cycler) {
+                                        setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                                        $item.slideUp(1000, function () {
+                                            $item.appendTo($cycler).show();
+                                        });
+                                    }
+                                    cycle($('#cycler div:first'), $('#cycler'));
+                                </script>
+                            </div>
+                            <!-- //date -->
+                        </div>
+                    </div>
+                </div>*@
+                <!-- //news-right-top -->
+                <!-- news-right-bottom -->
+                @*<div class="news-right-bottom">
+                    <div class="wthree-news-right-heading">
+                        <h3>Tin tức mới nhất</h3>
+                    </div>
+                    <div class="news-right-bottom-bg">
+                        <div class="news-grids-bottom">
+                            @foreach (var item in news2)
+                            {
+                                DateTime aDateTime = DateTime.Now;
+                                DateTime newTime = aDateTime.AddHours(-2);
+                                var link = "/Tin-tuc/" + item.Alias + "-" + item.ID;
+                                <div class="top-news-grid">
+                                    <div class="top-news-grid-heading">
+                                        <a href="@link">@item.Name</a>
+                                    </div>
+                                    <div class="w3ls-news-t-grid top-t-grid">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    @if (item.UpdatedDate == null)
+                                                    {
+                                                        @item.CreatedDate;
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.UpdatedDate;
+                                                    }
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-user"></i>
+                                                    @if (item.UpdatedBy == null)
+                                                    {
+                                                        @item.CreatedBy;
+                                                    }
+                                                    else
+                                                    {
+                                                        @item.UpdatedBy;
+                                                    }
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>*@
+                <!-- //news-right-bottom -->
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!-- //faq-banner -->
